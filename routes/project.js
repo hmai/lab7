@@ -32,7 +32,9 @@ exports.addProject = function(req, res) {
   newProject.save(afterSaving);
 
   function afterSaving(err) {
+    if (err) {
     console.log(err);
+    }
     res.redirect('/');
   }
 
@@ -49,8 +51,8 @@ exports.deleteProject = function(req, res) {
   function after(err) {
     if (err) {
       console.log(err);
-      res.redirect('/');
     }
+    res.send();
   }
 
 }
